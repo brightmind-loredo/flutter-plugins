@@ -33,6 +33,8 @@ class _MyAppState extends State<MyApp> {
 
     HealthFactory health = HealthFactory();
 
+    print("inside fetchData ");
+
     /// Define the types to get.
     List<HealthDataType> types = [
       HealthDataType.BODY_MASS_INDEX,
@@ -41,6 +43,7 @@ class _MyAppState extends State<MyApp> {
       HealthDataType.WATER,
       HealthDataType.HEIGHT,
       HealthDataType.STEPS,
+      HealthDataType.MINDFULNESS,
     ];
 
     setState(() => _state = AppState.FETCHING_DATA);
@@ -50,11 +53,14 @@ class _MyAppState extends State<MyApp> {
 
     if (accessWasGranted) {
       try {
+        print("Access granted");
+
         /// Fetch new data
         List<HealthDataPoint> healthData =
             await health.getHealthDataFromTypes(startDate, endDate, types);
 
         /// Save all the new data points
+        print(healthData.toString());
         _healthDataList.addAll(healthData);
       } catch (e) {
         print("Caught exception in getHealthDataFromTypes: $e");
@@ -142,6 +148,7 @@ class _MyAppState extends State<MyApp> {
                 icon: Icon(Icons.file_download),
                 onPressed: () {
                   fetchData();
+                  print("Health/example/lib/main.dart->fetchData pressed");
                 },
               )
             ],

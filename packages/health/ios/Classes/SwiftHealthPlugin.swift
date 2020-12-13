@@ -50,6 +50,7 @@ public class SwiftHealthPlugin: NSObject, FlutterPlugin {
 
     public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
         // Set up all data types
+        print("SwiftHealthPlugin->handle: at 1");
         initializeTypes()
 
         /// Handle checkIfHealthDataAvailable
