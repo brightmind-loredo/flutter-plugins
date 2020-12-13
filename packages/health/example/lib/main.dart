@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:health/health.dart';
 
+/// Github test
+
 void main() => runApp(MyApp());
 
 class MyApp extends StatefulWidget {
